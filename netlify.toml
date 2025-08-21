@@ -9,17 +9,4 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
-
-# Domain redirects - redirect from Netlify to main domain
-[[redirects]]
-  from = "https://magnificent-twilight-6a72c6.netlify.app/*"
-  to = "https://deletemydata.online/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.magnificent-twilight-6a72c6.netlify.app/*"
-  to = "https://deletemydata.online/:splat"
-  status = 301
-  force = true 
+  status = 200 
