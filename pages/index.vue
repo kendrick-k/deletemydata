@@ -3,6 +3,9 @@
     <!-- Hero Section -->
     <HeroSection />
 
+    <!-- Disclaimer -->
+    <Disclaimer />
+
     <!-- How It Works -->
     <HowItWorksSection />
 

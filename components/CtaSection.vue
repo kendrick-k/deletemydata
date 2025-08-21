@@ -5,7 +5,7 @@
         Prêt à reprendre le contrôle de vos données ?
       </h2>
       <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-        Rejoignez des milliers d'utilisateurs qui ont déjà supprimé leurs données de centaines d'entreprises.
+        Rejoignez notre communauté d'utilisateurs qui exercent leurs droits RGPD.
       </p>
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
         <a href="/generator" class="bg-white text-blue-600 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-3">

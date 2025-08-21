@@ -23,19 +23,7 @@ export default defineNuxtConfig({
       mode: 'out-in'
     },
     head: {
-      script: [
-        // Google Analytics - only in production
-        ...(process.env.NODE_ENV === 'production' ? [
-          {
-            src: 'https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G',
-            async: true
-          }
-        ] : []),
-        // Preline JavaScript (chargé via plugin)
-        // {
-        //   src: './node_modules/preline/dist/preline.js'
-        // }
-      ]
+      // Google Analytics est géré par le plugin gtag.client.ts
     }
   },
   

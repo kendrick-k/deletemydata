@@ -7,7 +7,7 @@
       </h1>
       
       <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto text-balance leading-relaxed">
-        Générez, envoyez et suivez vos demandes RGPD / Delete Act vers des centaines d'entreprises en un clic.
+        Générez, envoyez et suivez vos demandes RGPD / Delete Act vers de nombreuses entreprises en un clic.
       </p>
       
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
