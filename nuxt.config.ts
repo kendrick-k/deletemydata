@@ -46,13 +46,13 @@ export default defineNuxtConfig({
     optimizeDeps: {
       exclude: ['@nuxtjs/supabase']
     }
-  }
-  
+  },
+
   // Preline configuration (temporarily disabled)
   // css: [
   //   'preline/dist/preline.css'
   // ],
-  
+
   // Add Preline plugin (temporarily disabled)
   // plugins: [
   //   '~/plugins/preline.client.ts'
