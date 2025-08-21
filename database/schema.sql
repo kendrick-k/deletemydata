@@ -316,4 +316,48 @@ insert into public.privacy_contacts (domain, company_name, email, type, source, 
 ('linkedin.com', 'Microsoft Corporation', 'privacy@linkedin.com', 'privacy', 'manual', 85),
 ('instagram.com', 'Meta Platforms Inc.', 'dpo@instagram.com', 'dpo', 'manual', 90),
 ('youtube.com', 'Google LLC', 'privacy@youtube.com', 'privacy', 'manual', 90)
-on conflict (domain, email) do nothing; 
+on conflict (domain, email) do nothing;
+
+-- =====================================================
+-- LISTE D'ATTENTE RGPD
+-- =====================================================
+
+-- Table pour la liste d'attente des demandes RGPD
+create table public.waiting_list_rgpd (
+  id uuid primary key default gen_random_uuid(),
+  email text not null unique,
+  first_name text,
+  last_name text,
+  company_name text,
+  company_domain text,
+  request_type text check (request_type in ('deletion', 'access', 'rectification')) default 'deletion',
+  additional_details text,
+  status text check (status in ('pending', 'contacted', 'converted', 'unsubscribed')) default 'pending',
+  source text, -- 'website', 'generator', 'directory', etc.
+  ip_address inet,
+  user_agent text,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+-- Index pour la performance
+create index on public.waiting_list_rgpd (email);
+create index on public.waiting_list_rgpd (status);
+create index on public.waiting_list_rgpd (created_at);
+create index on public.waiting_list_rgpd (company_domain);
+
+-- Activer RLS
+alter table public.waiting_list_rgpd enable row level security;
+
+-- Politique RLS : lecture publique, écriture publique (pour l'inscription)
+create policy "public read access"
+on public.waiting_list_rgpd for select
+using (true);
+
+create policy "public insert access"
+on public.waiting_list_rgpd for insert
+with check (true);
+
+-- Trigger pour updated_at
+create trigger update_waiting_list_rgpd_updated_at before update on public.waiting_list_rgpd
+  for each row execute function public.update_updated_at_column(); 
