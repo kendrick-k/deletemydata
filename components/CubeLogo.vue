@@ -1,43 +1,9 @@
 <template>
   <div class="inline-flex items-center justify-center">
     <!-- Logo Cube SVG -->
-    <svg 
-      :width="size" 
-      :height="size" 
-      viewBox="0 0 32 32" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg"
-      class="flex-shrink-0"
-    >
-      <!-- Cube 3D avec effet de profondeur -->
-      <defs>
-        <linearGradient id="cubeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
-        </linearGradient>
-        <linearGradient id="cubeShadow" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
-        </linearGradient>
-      </defs>
-      
-      <!-- Face avant du cube -->
-      <rect x="8" y="12" width="16" height="16" fill="url(#cubeGradient)" rx="2"/>
-      
-      <!-- Face droite du cube -->
-      <path d="M24 12 L28 8 L28 24 L24 28 L24 12" fill="url(#cubeShadow)"/>
-      
-      <!-- Face supérieure du cube -->
-      <path d="M8 12 L12 8 L28 8 L24 12 L8 12" fill="url(#cubeGradient)" opacity="0.8"/>
-      
-      <!-- Icône de suppression au centre -->
-      <circle cx="16" cy="20" r="4" fill="white" opacity="0.9"/>
-      <path d="M14 18 L18 22 M18 18 L14 22" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round"/>
-      
-      <!-- Effet de brillance -->
-      <circle cx="12" cy="16" r="1" fill="white" opacity="0.6"/>
+    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
     </svg>
-    
     <!-- Texte du logo (optionnel) -->
     <span v-if="showText" class="ml-2 text-xl font-bold text-gray-900">
       DeleteMyData
