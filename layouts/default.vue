@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex flex-col">
     <!-- Header -->
-    <Header />
+    <Header :disabled="true" />
     
     <!-- Main Content -->
     <main class="flex-1">
@@ -9,7 +9,7 @@
     </main>
     
     <!-- Footer -->
-    <Footer />
+    <Footer :disabled="true" />
   </div>
 </template>
 

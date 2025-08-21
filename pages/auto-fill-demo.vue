@@ -53,7 +53,7 @@
               </div>
             </div>
             <a 
-              href="http://localhost:3005/generator?company=Google&domain=google.com&dpo=dpo@google.com&privacy=privacy@google.com&legal=legal@google.com"
+              href="/generator?company=Google&domain=google.com&dpo=dpo@google.com&privacy=privacy@google.com&legal=legal@google.com"
               class="w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 text-center transition-colors font-semibold inline-block"
             >
               Tester Google
@@ -92,7 +92,7 @@
               </div>
             </div>
             <a 
-              href="http://localhost:3005/generator?company=Facebook&domain=facebook.com&dpo=dpo@facebook.com&privacy=privacy@facebook.com&legal=legal@facebook.com"
+              href="/generator?company=Facebook&domain=facebook.com&dpo=dpo@facebook.com&privacy=privacy@facebook.com&legal=legal@facebook.com"
               class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 text-center transition-colors font-semibold inline-block"
             >
               Tester Facebook
@@ -131,7 +131,7 @@
               </div>
             </div>
             <a 
-              href="http://localhost:3005/generator?company=Amazon&domain=amazon.com&dpo=dpo@amazon.com&privacy=privacy@amazon.com&legal=legal@amazon.com"
+              href="/generator?company=Amazon&domain=amazon.com&dpo=dpo@amazon.com&privacy=privacy@amazon.com&legal=legal@amazon.com"
               class="w-full bg-orange-600 text-white py-3 px-4 rounded-lg hover:bg-orange-700 text-center transition-colors font-semibold inline-block"
             >
               Tester Amazon
@@ -170,7 +170,7 @@
               </div>
             </div>
             <a 
-              href="http://localhost:3005/generator?company=Apple&domain=apple.com&dpo=dpo@apple.com&privacy=privacy@apple.com&legal=legal@apple.com"
+              href="/generator?company=Apple&domain=apple.com&dpo=dpo@apple.com&privacy=privacy@apple.com&legal=legal@apple.com"
               class="w-full bg-gray-600 text-white py-3 px-4 rounded-lg hover:bg-gray-700 text-center transition-colors font-semibold inline-block"
             >
               Tester Apple
@@ -209,7 +209,7 @@
               </div>
             </div>
             <a 
-              href="http://localhost:3005/generator?company=Microsoft&domain=microsoft.com&dpo=dpo@microsoft.com&privacy=privacy@microsoft.com&legal=legal@microsoft.com"
+              href="/generator?company=Microsoft&domain=microsoft.com&dpo=dpo@microsoft.com&privacy=privacy@microsoft.com&legal=legal@microsoft.com"
               class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 text-center transition-colors font-semibold inline-block"
             >
               Tester Microsoft
@@ -248,7 +248,7 @@
               </div>
             </div>
             <a 
-              href="http://localhost:3005/generator?company=Netflix&domain=netflix.com&dpo=dpo@netflix.com&privacy=privacy@netflix.com&legal=legal@netflix.com"
+              href="/generator?company=Netflix&domain=netflix.com&dpo=dpo@netflix.com&privacy=privacy@netflix.com&legal=legal@netflix.com"
               class="w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 text-center transition-colors font-semibold inline-block"
             >
               Tester Netflix
@@ -293,7 +293,7 @@
         <h3 class="text-2xl font-bold text-gray-900 mb-6">Prêt à tester ?</h3>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a 
-            href="http://localhost:3005/generator"
+            href="/generator"
             class="btn-primary text-lg px-8 py-4 inline-flex items-center gap-3"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

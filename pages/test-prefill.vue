@@ -18,7 +18,7 @@
             Pré-remplissage avec les informations de Google
           </p>
           <a 
-            href="http://localhost:3005/generator?company=Google&domain=google.com&dpo=dpo@google.com&privacy=privacy@google.com&legal=legal@google.com"
+            href="/generator?company=Google&domain=google.com&dpo=dpo@google.com&privacy=privacy@google.com&legal=legal@google.com"
             class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Tester Google
@@ -35,7 +35,7 @@
             Pré-remplissage avec les informations de Facebook
           </p>
           <a 
-            href="http://localhost:3005/generator?company=Facebook&domain=facebook.com&dpo=dpo@facebook.com&privacy=privacy@facebook.com&legal=legal@facebook.com"
+            href="/generator?company=Facebook&domain=facebook.com&dpo=dpo@facebook.com&privacy=privacy@facebook.com&legal=legal@facebook.com"
             class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Tester Facebook
@@ -52,7 +52,7 @@
             Pré-remplissage avec les informations d'Amazon
           </p>
           <a 
-            href="http://localhost:3005/generator?company=Amazon&domain=amazon.com&dpo=dpo@amazon.com&privacy=privacy@amazon.com&legal=legal@amazon.com"
+            href="/generator?company=Amazon&domain=amazon.com&dpo=dpo@amazon.com&privacy=privacy@amazon.com&legal=legal@amazon.com"
             class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Tester Amazon
@@ -69,7 +69,7 @@
             Pré-remplissage avec des données de test
           </p>
           <a 
-            href="http://localhost:3005/generator?company=Test%20Company&domain=test.com&dpo=dpo@test.com&privacy=privacy@test.com&legal=legal@test.com"
+            href="/generator?company=Test%20Company&domain=test.com&dpo=dpo@test.com&privacy=privacy@test.com&legal=legal@test.com"
             class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Tester Simple
@@ -94,7 +94,7 @@
       <!-- Retour au générateur -->
       <div class="mt-8 text-center">
         <a 
-          href="http://localhost:3005/generator"
+          href="/generator"
           class="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition-colors text-lg font-semibold"
         >
           Aller au générateur (sans pré-remplissage)

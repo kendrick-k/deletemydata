@@ -19,7 +19,7 @@
           <!-- CTA Button -->
           <div class="mb-4">
             <a 
-              href="http://localhost:3005/generator?company=Google&domain=google.com&dpo=dpo@google.com&privacy=privacy@google.com&legal=legal@google.com"
+              href="/generator?company=Google&domain=google.com&dpo=dpo@google.com&privacy=privacy@google.com&legal=legal@google.com"
               class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@
           <h3 class="text-lg font-semibold mb-4">Produit</h3>
           <ul class="space-y-2">
             <li>
-              <a href="http://localhost:3005/generator" class="text-gray-300 hover:text-white transition-colors">
+              <a href="/generator" class="text-gray-300 hover:text-white transition-colors">
                 Générateur RGPD
               </a>
             </li>
@@ -107,17 +107,44 @@
           <h3 class="text-lg font-semibold mb-4">Compte</h3>
           <ul class="space-y-2">
             <li>
-              <a href="/login" class="text-gray-300 hover:text-white transition-colors">
+              <a 
+                :href="props.disabled ? '#' : '/login'" 
+                :class="[
+                  'transition-colors',
+                  props.disabled 
+                    ? 'text-gray-500 cursor-not-allowed pointer-events-none' 
+                    : 'text-gray-300 hover:text-white'
+                ]"
+                @click="props.disabled ? $event.preventDefault() : null"
+              >
                 Se connecter
               </a>
             </li>
             <li>
-              <a href="/signup" class="text-gray-300 hover:text-white transition-colors">
+              <a 
+                :href="props.disabled ? '#' : '/signup'" 
+                :class="[
+                  'transition-colors',
+                  props.disabled 
+                    ? 'text-gray-500 cursor-not-allowed pointer-events-none' 
+                    : 'text-gray-300 hover:text-white'
+                ]"
+                @click="props.disabled ? $event.preventDefault() : null"
+              >
                 S'inscrire
               </a>
             </li>
             <li>
-              <a href="/dashboard" class="text-gray-300 hover:text-white transition-colors">
+              <a 
+                :href="props.disabled ? '#' : '/dashboard'" 
+                :class="[
+                  'transition-colors',
+                  props.disabled 
+                    ? 'text-gray-500 cursor-not-allowed pointer-events-none' 
+                    : 'text-gray-300 hover:text-white'
+                ]"
+                @click="props.disabled ? $event.preventDefault() : null"
+              >
                 Dashboard
               </a>
             </li>
@@ -146,4 +173,15 @@
       </div>
     </div>
   </footer>
-</template> 
+</template>
+
+<script setup lang="ts">
+// Props
+interface Props {
+  disabled?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  disabled: true
+})
+</script> 

@@ -1,8 +1,0 @@
-<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="400" height="200" fill="#FEF3C7"/>
-  <circle cx="200" cy="100" r="60" fill="#F59E0B"/>
-  <text x="200" y="95" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">G</text>
-  <text x="200" y="115" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">oogle</text>
-  <path d="M140 100 L180 100 M220 100 L260 100" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
-  <text x="200" y="160" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Suppression des données</text>
-</svg> 

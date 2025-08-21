@@ -43,7 +43,7 @@ withDefaults(defineProps<Props>(), {
   title: 'Prêt à reprendre le contrôle de vos données ?',
   subtitle: 'Rejoignez des milliers d\'utilisateurs qui ont déjà supprimé leurs données de centaines d\'entreprises.',
   primaryButtonText: 'Commencer gratuitement',
-  primaryButtonHref: 'http://localhost:3005/generator',
+  primaryButtonHref: '/generator',
   secondaryButtonText: 'Nous contacter',
   secondaryButtonHref: '/contact'
 })

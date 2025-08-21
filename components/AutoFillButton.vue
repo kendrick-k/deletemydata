@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Générer l'URL du générateur avec les paramètres
 const generatorUrl = computed(() => {
-  const baseUrl = 'http://localhost:3005/generator'
+  const baseUrl = '/generator'
   const params = new URLSearchParams()
   
   params.append('company', props.company)

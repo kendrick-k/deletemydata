@@ -6,12 +6,12 @@
         <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
           Commencez gratuitement, évoluez selon vos besoins
         </p>
-        <button type="button" class="hs-overlay-toggle bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center gap-3" data-hs-overlay="#pricing-modal">
+        <!-- <button type="button" class="hs-overlay-toggle bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center gap-3" data-hs-overlay="#pricing-modal">
           Voir tous les détails
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
           </svg>
-        </button>
+        </button> -->
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -23,7 +23,7 @@
             0€
             <span class="text-lg font-normal text-gray-600">/mois</span>
           </div>
-          <ul class="text-left space-y-4 mb-8">
+          <ul class="text-left space-y-4 mb-8 min-h-[200px]">
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
@@ -48,8 +48,9 @@
               </svg>
               Annuaire Privacy Contacts
             </li>
+            <li class="flex items-center gap-3">&nbsp;</li>
           </ul>
-          <a href="http://localhost:3005/generator" class="btn-primary w-full text-center text-lg py-4">
+          <a href="/generator" class="btn-primary w-full text-center whitespace-nowrap text-lg py-4">
             Commencer gratuitement
           </a>
         </div>
@@ -65,7 +66,7 @@
             9€
             <span class="text-lg font-normal text-gray-600">/mois</span>
           </div>
-          <ul class="text-left space-y-4 mb-8">
+          <ul class="text-left space-y-4 mb-8 min-h-[200px]">
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
@@ -110,7 +111,7 @@
             49€
             <span class="text-lg font-normal text-gray-600">/mois</span>
           </div>
-          <ul class="text-left space-y-4 mb-8">
+          <ul class="text-left space-y-4 mb-8 min-h-[200px]">
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
@@ -157,10 +158,18 @@
             </svg>
             <h3 class="text-lg font-semibold text-blue-900">Plans Pro et Business en développement</h3>
           </div>
-          <p class="text-blue-800">
+          <p class="text-blue-800 mb-6">
             Nous travaillons actuellement sur les fonctionnalités avancées. Le plan gratuit vous permet déjà de commencer 
             à reprendre le contrôle de vos données. Inscrivez-vous pour être notifié de la disponibilité des plans payants.
           </p>
+          
+          <!-- Bouton de liste d'attente -->
+          <div class="flex justify-center">
+            <WaitingListButton 
+              button-classes="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
+              button-text="Rejoindre la liste d'attente"
+            />
+          </div>
         </div>
       </div>
     </div>

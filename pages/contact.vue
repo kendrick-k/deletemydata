@@ -169,11 +169,11 @@
                   <div>
                     <h4 class="font-medium text-gray-900">Email</h4>
                     <p class="text-gray-600">contact@deletemydata.online</p>
-                    <p class="text-sm text-gray-500">Réponse sous 24h</p>
+                    <!-- <p class="text-sm text-gray-500">Réponse sous 24h</p> -->
                   </div>
                 </div>
 
-                <div class="flex items-start">
+                <!-- <div class="flex items-start">
                   <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -184,7 +184,7 @@
                     <p class="text-gray-600">24-48 heures</p>
                     <p class="text-sm text-gray-500">Lundi - Vendredi</p>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="flex items-start">
                   <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
@@ -246,7 +246,7 @@
           Commencez dès aujourd'hui avec notre plateforme gratuite
         </p>
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="http://localhost:3005/generator" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+          <a href="/generator" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
             Commencer gratuitement
           </a>
           <a href="/#how-it-works" class="text-white border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
@@ -297,23 +297,38 @@ const handleSubmit = async () => {
   success.value = ''
 
   try {
-    // Simulation d'envoi (remplacer par votre logique d'API)
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // Envoyer le message via l'API
+    const response = await $fetch('/api/contact', {
+      method: 'POST',
+      body: form.value
+    })
     
-    success.value = 'Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.'
-    
-    // Réinitialiser le formulaire
-    form.value = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      subject: '',
-      message: '',
-      acceptPrivacy: false
+    if (response.success) {
+      success.value = 'Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.'
+      
+      // Réinitialiser le formulaire
+      form.value = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: '',
+        message: '',
+        acceptPrivacy: false
+      }
+    } else {
+      error.value = 'Erreur lors de l\'envoi du message. Veuillez réessayer.'
     }
     
-  } catch (err) {
-    error.value = 'Erreur lors de l\'envoi du message. Veuillez réessayer.'
+  } catch (err: any) {
+    console.error('Erreur contact:', err)
+    
+    if (err.statusMessage) {
+      error.value = err.statusMessage
+    } else if (err.data?.message) {
+      error.value = err.data.message
+    } else {
+      error.value = 'Erreur lors de l\'envoi du message. Veuillez réessayer.'
+    }
   } finally {
     isLoading.value = false
   }

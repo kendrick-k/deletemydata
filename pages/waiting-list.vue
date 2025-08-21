@@ -108,7 +108,7 @@
       <!-- CTA -->
       <div class="mt-12 text-center">
         <a 
-          href="http://localhost:3005/generator"
+          href="/generator"
           class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg"
         >
           Essayer le générateur RGPD

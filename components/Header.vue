@@ -17,7 +17,7 @@
           <a href="/" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Accueil
           </a>
-          <a href="http://localhost:3005/generator" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+          <a href="/generator" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Générateur
           </a>
           <a href="/directory" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
@@ -36,10 +36,26 @@
 
         <!-- CTA Button -->
         <div class="hidden md:flex items-center space-x-4">
-          <a href="/login" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+          <a 
+            href="/login" 
+            :class="[
+              'px-3 py-2 text-sm font-medium transition-colors',
+              props.disabled 
+                ? 'text-gray-400 cursor-not-allowed pointer-events-none' 
+                : 'text-gray-700 hover:text-blue-600'
+            ]"
+          >
             Se connecter
           </a>
-          <a href="/signup" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
+          <a 
+            href="/signup" 
+            :class="[
+              'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
+              props.disabled 
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none' 
+                : 'bg-blue-600 text-white hover:bg-blue-700'
+            ]"
+          >
             S'inscrire
           </a>
         </div>
@@ -66,7 +82,7 @@
           <a href="/" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Accueil
           </a>
-          <a href="http://localhost:3005/generator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+          <a href="/generator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Générateur
           </a>
           <a href="/directory" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
@@ -82,7 +98,15 @@
             Tarifs
           </a>
           <div class="pt-4 border-t border-gray-200">
-            <a href="/signup" class="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-base font-medium">
+            <a 
+              href="/signup" 
+              :class="[
+                'block w-full text-center px-4 py-2 rounded-lg text-base font-medium transition-colors',
+                props.disabled 
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none' 
+                  : 'bg-blue-600 text-white hover:bg-blue-700'
+              ]"
+            >
               Commencer
             </a>
           </div>
@@ -92,9 +116,18 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // Import components
 import CubeLogo from '~/components/CubeLogo.vue'
+
+// Props
+interface Props {
+  disabled?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false
+})
 
 const mobileMenuOpen = ref(false)
 </script> 

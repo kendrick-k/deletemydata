@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/seo'
   ],
   
   // CSS global
@@ -29,7 +30,11 @@ export default defineNuxtConfig({
             src: 'https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G',
             async: true
           }
-        ] : [])
+        ] : []),
+        // Preline JavaScript (chargé via plugin)
+        // {
+        //   src: './node_modules/preline/dist/preline.js'
+        // }
       ]
     }
   },
@@ -74,16 +79,7 @@ export default defineNuxtConfig({
 
   // Plugins
   plugins: [
-    '~/plugins/gtag.client.ts'
-  ],
-
-  // Preline configuration (temporarily disabled)
-  // css: [
-  //   'preline/dist/preline.css'
-  // ],
-
-  // Add Preline plugin (temporarily disabled)
-  // plugins: [
-  //   '~/plugins/preline.client.ts'
-  // ]
+    '~/plugins/gtag.client.ts',
+    '~/plugins/preline.client.ts'
+  ]
 })

@@ -11,7 +11,7 @@
       </p>
       
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-        <a href="http://localhost:3005/generator" class="btn-primary text-lg px-10 py-4 inline-flex items-center gap-3">
+        <a href="/generator" class="btn-primary text-lg px-10 py-4 inline-flex items-center gap-3">
           Commencer gratuitement
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -19,7 +19,7 @@
         </a>
         
         <!-- Dropdown Navigation -->
-        <div class="hs-dropdown relative inline-flex">
+        <!-- <div class="hs-dropdown relative inline-flex">
           <button type="button" class="hs-dropdown-toggle btn-outline text-lg px-8 py-4 inline-flex items-center gap-3">
             Navigation rapide
             <svg class="hs-dropdown-open:rotate-180 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -27,7 +27,7 @@
             </svg>
           </button>
           <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white shadow-lg rounded-lg p-2 mt-2 min-w-[15rem]">
-            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-700 hover:bg-gray-100" href="http://localhost:3005/generator">
+            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-700 hover:bg-gray-100" href="/generator">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
               </svg>
@@ -66,7 +66,7 @@
               FAQ
             </a>
           </div>
-        </div>
+        </div> -->
         
         <a href="#how-it-works" class="btn-outline text-lg px-8 py-4">
           Comment ça marche

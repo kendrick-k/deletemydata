@@ -21,15 +21,17 @@ export default defineNuxtPlugin(() => {
     page_location: window.location.href
   })
 
-  // Track page views on route changes
-  const router = useRouter()
-  router.afterEach((to) => {
+  // Track page views on route changes (using window location for compatibility)
+  const trackPageChange = () => {
     gtag('config', GA_ID, {
       page_title: document.title,
       page_location: window.location.href,
-      page_path: to.path
+      page_path: window.location.pathname
     })
-  })
+  }
+  
+  // Listen for navigation changes
+  window.addEventListener('popstate', trackPageChange)
 
   // Provide gtag function globally
   return {

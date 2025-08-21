@@ -94,7 +94,7 @@
             Recevez nos articles et conseils directement dans votre boîte mail
           </p>
           <WaitingListButton 
-            button-text="S'abonner au blog"
+            button-text="S'abonner à la liste d'attente"
             button-classes="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg"
             :show-icon="false"
           />
@@ -105,6 +105,9 @@
 </template>
 
 <script setup lang="ts">
+// Import Unsplash utilities
+import { getBlogThumbnailUrl, getTeamAvatar } from '~/utils/unsplash'
+
 // Meta tags
 useHead({
   title: 'Blog RGPD - Protection des données et conformité | DeleteMyData',
@@ -123,78 +126,78 @@ const articles = ref([
     slug: 'guide-rgpd-2024',
     title: 'Guide complet RGPD 2024 : Vos droits et obligations',
     excerpt: 'Découvrez tout ce que vous devez savoir sur le RGPD en 2024. Nous vous expliquons vos droits, les obligations des entreprises et comment exercer vos droits à la suppression des données.',
-    image: '/images/blog/rgpd-guide-2024.jpg',
+    image: getBlogThumbnailUrl('Guide'),
     category: 'Guide',
     date: '2024-01-15',
     author: {
       name: 'Sophie Martin',
       role: 'Experte RGPD',
-      avatar: '/images/team/sophie-martin.jpg'
+      avatar: getTeamAvatar('Sophie Martin')
     }
   },
   {
     slug: 'supprimer-donnees-google',
     title: 'Comment supprimer vos données de Google en 2024',
     excerpt: 'Google collecte énormément de données sur vous. Apprenez comment identifier, demander et obtenir la suppression de vos données personnelles stockées par Google.',
-    image: '/images/blog/google-data-deletion.jpg',
+    image: getBlogThumbnailUrl('Tutoriel'),
     category: 'Tutoriel',
     date: '2024-01-10',
     author: {
       name: 'Thomas Dubois',
       role: 'Spécialiste Tech',
-      avatar: '/images/team/thomas-dubois.jpg'
+      avatar: getTeamAvatar('Thomas Dubois')
     }
   },
   {
     slug: 'droit-oubli-facebook',
     title: 'Le droit à l\'oubli sur Facebook : Guide pratique',
     excerpt: 'Facebook garde une trace de tout ce que vous faites. Découvrez comment exercer votre droit à l\'oubli et faire supprimer vos données personnelles du réseau social.',
-    image: '/images/blog/facebook-right-to-be-forgotten.jpg',
+    image: getBlogThumbnailUrl('Tutoriel'),
     category: 'Tutoriel',
     date: '2024-01-05',
     author: {
       name: 'Marie Leroy',
       role: 'Avocate en droit numérique',
-      avatar: '/images/team/marie-leroy.jpg'
+      avatar: getTeamAvatar('Marie Leroy')
     }
   },
   {
     slug: 'protection-donnees-entreprises',
     title: 'RGPD pour les entreprises : Comment se mettre en conformité',
     excerpt: 'Vous dirigez une entreprise ? Découvrez les étapes essentielles pour vous mettre en conformité RGPD et éviter les sanctions qui peuvent aller jusqu\'à 4% du CA.',
-    image: '/images/blog/rgpd-entreprises.jpg',
+    image: getBlogThumbnailUrl('Conformité'),
     category: 'Conformité',
     date: '2024-01-01',
     author: {
       name: 'Pierre Moreau',
       role: 'Consultant RGPD',
-      avatar: '/images/team/pierre-moreau.jpg'
+      avatar: getTeamAvatar('Pierre Moreau')
     }
   },
   {
     slug: 'cookies-tracking',
     title: 'Cookies et tracking : Comment reprendre le contrôle',
     excerpt: 'Les cookies et le tracking en ligne vous inquiètent ? Apprenez à comprendre, gérer et limiter le suivi de votre activité sur internet.',
-    image: '/images/blog/cookies-tracking.jpg',
+    image: getBlogThumbnailUrl('Sécurité'),
     category: 'Sécurité',
     date: '2023-12-28',
     author: {
       name: 'Sophie Martin',
       role: 'Experte RGPD',
-      avatar: '/images/team/sophie-martin.jpg'
+      avatar: getTeamAvatar('Sophie Martin')
     }
   },
   {
     slug: 'donnees-sante-privacy',
     title: 'Protection des données de santé : Les règles spécifiques',
     excerpt: 'Les données de santé sont particulièrement sensibles et protégées. Découvrez les règles spécifiques et comment les entreprises doivent les traiter.',
-    image: '/images/blog/health-data-privacy.jpg',
+    image: getBlogThumbnailUrl('Santé'),
     category: 'Santé',
     date: '2023-12-20',
     author: {
       name: 'Dr. Claire Bernard',
       role: 'Médecin et juriste',
-      avatar: '/images/team/claire-bernard.jpg'
+      avatar: getTeamAvatar('Claire Bernard')
     }
   }
 ])
