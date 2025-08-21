@@ -143,7 +143,7 @@ Preline components can enhance your GDPR application with:
 
 Visit the demo page to see all components in action:
 ```
-http://localhost:3005/preline-demo
+/preline-demo
 ```
 
 ## Resources

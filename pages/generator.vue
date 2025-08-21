@@ -450,14 +450,19 @@ const addFooter = (doc: any, pageWidth: number, margin: number) => {
   const footerWidth = doc.getTextWidth(footerText)
   const footerX = (pageWidth - footerWidth) / 2
   
-  // Texte du footer en noir
-  doc.setTextColor(0, 0, 0) // Noir
+  // Texte du footer en bleu et cliquable
+  doc.setTextColor(0, 102, 204) // Bleu
   doc.text(footerText, footerX, footerY + 8)
   
   // Rendre le texte "Généré par deletemydata.online" cliquable
   doc.link(footerX, footerY + 2, footerWidth, 12, { 
-    url: 'https://deletemydata.online'
+    url: 'https://deletemydata.online',
+    color: [0, 102, 204] // Couleur bleue pour le lien
   })
+  
+  // Ajouter un petit indicateur visuel (soulignement)
+  doc.setDrawColor(0, 102, 204)
+  doc.line(footerX, footerY + 10, footerX + footerWidth, footerY + 10)
 }
 
 // Téléchargement du PDF

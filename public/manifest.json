@@ -1,0 +1,22 @@
+{
+  "name": "DeleteMyData - Générateur de demandes RGPD",
+  "short_name": "DeleteMyData",
+  "description": "Générez des demandes RGPD conformes pour la suppression de vos données personnelles",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    }
+  ]
+} 
