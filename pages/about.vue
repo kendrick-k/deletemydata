@@ -13,7 +13,7 @@
     <AboutValuesSection />
     
     <!-- Équipe -->
-    <AboutTeamSection />
+    <!-- <AboutTeamSection /> -->
     
     <!-- CTA Section -->
     <AboutCtaSection />

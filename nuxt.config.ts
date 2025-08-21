@@ -15,6 +15,25 @@ export default defineNuxtConfig({
     '~/assets/css/main.css'
   ],
   
+  // Transitions de page
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in'
+    },
+    head: {
+      script: [
+        // Google Analytics - only in production
+        ...(process.env.NODE_ENV === 'production' ? [
+          {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G',
+            async: true
+          }
+        ] : [])
+      ]
+    }
+  },
+  
   supabase: {
     redirect: false,
     // Use environment variables with fallbacks
@@ -50,21 +69,6 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       exclude: ['@nuxtjs/supabase']
-    }
-  },
-
-  // Google Analytics configuration (production only)
-  app: {
-    head: {
-      script: [
-        // Google Analytics - only in production
-        ...(process.env.NODE_ENV === 'production' ? [
-          {
-            src: 'https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G',
-            async: true
-          }
-        ] : [])
-      ]
     }
   },
 
