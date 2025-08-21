@@ -115,8 +115,8 @@
               <!-- Actions -->
               <div class="space-y-3">
                 <a 
-                  :href="`/generator?company=${encodeURIComponent(selectedCompany.name)}`"
-                  class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-center font-medium"
+                  :href="`/generator?company=${encodeURIComponent(selectedCompany.name)}&domain=${encodeURIComponent(selectedCompany.domain)}&dpo=${encodeURIComponent(selectedCompany.dpo)}&privacy=${encodeURIComponent(selectedCompany.privacyEmail)}&legal=${encodeURIComponent(selectedCompany.legalEmail)}`"
+                  class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-center font-semibold text-lg shadow-sm hover:shadow-md"
                 >
                   Créer une demande RGPD
                 </a>
