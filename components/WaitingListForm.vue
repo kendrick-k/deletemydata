@@ -203,6 +203,9 @@ const emit = defineEmits<{
   subscribed: [email: string]
 }>()
 
+// Analytics
+const { trackWaitingListSignup, trackFormSubmission } = useAnalytics()
+
 // État du formulaire
 const form = ref({
   firstName: '',
@@ -264,6 +267,10 @@ const submitForm = async () => {
     isSuccess.value = true
     message.value = 'Inscription réussie ! Vous recevrez bientôt nos informations RGPD.'
     
+    // Analytics - Track successful signup
+    trackWaitingListSignup(props.source)
+    trackFormSubmission('waiting_list_form', true)
+    
     // Émettre l'événement
     emit('subscribed', form.value.email)
     
@@ -282,6 +289,9 @@ const submitForm = async () => {
     console.error('Erreur inscription:', error)
     isSuccess.value = false
     message.value = error instanceof Error ? error.message : 'Erreur lors de l\'inscription. Veuillez réessayer.'
+    
+    // Analytics - Track failed signup
+    trackFormSubmission('waiting_list_form', false)
   } finally {
     isSubmitting.value = false
   }

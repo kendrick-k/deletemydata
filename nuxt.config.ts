@@ -48,6 +48,26 @@ export default defineNuxtConfig({
     }
   },
 
+  // Google Analytics configuration (production only)
+  app: {
+    head: {
+      script: [
+        // Google Analytics - only in production
+        ...(process.env.NODE_ENV === 'production' ? [
+          {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G',
+            async: true
+          }
+        ] : [])
+      ]
+    }
+  },
+
+  // Plugins
+  plugins: [
+    '~/plugins/gtag.client.ts'
+  ],
+
   // Preline configuration (temporarily disabled)
   // css: [
   //   'preline/dist/preline.css'
