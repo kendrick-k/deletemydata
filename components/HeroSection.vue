@@ -11,7 +11,7 @@
       </p>
       
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-        <a href="#get-started" class="btn-primary text-lg px-10 py-4 inline-flex items-center gap-3">
+        <a href="/generator" class="btn-primary text-lg px-10 py-4 inline-flex items-center gap-3">
           Commencer gratuitement
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>

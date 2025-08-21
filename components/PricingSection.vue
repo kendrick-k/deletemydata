@@ -49,7 +49,7 @@
               Annuaire Privacy Contacts
             </li>
           </ul>
-          <a href="#get-started" class="btn-outline w-full">Commencer gratuitement</a>
+          <a href="/generator" class="btn-outline w-full">Commencer gratuitement</a>
         </div>
         
         <!-- Pro Plan - Désactivé -->
