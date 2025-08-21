@@ -15,6 +15,20 @@
           <p class="text-gray-300 mb-4 max-w-md">
             Reprenez le contrôle de vos données personnelles. Générez, envoyez et suivez vos demandes RGPD / Delete Act en un clic.
           </p>
+          
+          <!-- CTA Button -->
+          <div class="mb-4">
+            <a 
+              href="http://localhost:3005/generator?company=Google&domain=google.com&dpo=dpo@google.com&privacy=privacy@google.com&legal=legal@google.com"
+              class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+              Essayer le générateur RGPD
+            </a>
+          </div>
+          
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -41,6 +55,11 @@
             <li>
               <a href="/directory" class="text-gray-300 hover:text-white transition-colors">
                 Annuaire Contacts
+              </a>
+            </li>
+            <li>
+              <a href="/auto-fill-demo" class="text-gray-300 hover:text-white transition-colors">
+                Démo Auto-remplissage
               </a>
             </li>
             <li>
