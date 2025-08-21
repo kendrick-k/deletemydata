@@ -23,6 +23,9 @@
 
     <!-- CTA Section -->
     <CtaSection />
+    
+    <!-- Scroll to Top Button -->
+    <ScrollToTop />
 
   </div>
 </template>
