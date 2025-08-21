@@ -380,7 +380,7 @@ const allFAQs = ref({
   'features': [
     {
       id: 'feat-1',
-      question: 'Qu'est-ce que l'annuaire Privacy Contacts ?',
+      question: 'Qu\'est-ce que l\'annuaire Privacy Contacts ?',
       answer: `
         <p class="mb-3">L'annuaire Privacy Contacts est une base de données de plus de 10 000 entreprises avec leurs contacts de protection des données :</p>
         <ul class="list-disc list-inside space-y-2">
