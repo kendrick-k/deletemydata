@@ -38,7 +38,7 @@ export default defineNuxtConfig({
   
   // Handle missing environment variables gracefully
   experimental: {
-    inlineSSRStyles: false
+    // inlineSSRStyles: false // Propriété invalide supprimée
   },
   
   // Node.js 18 compatibility

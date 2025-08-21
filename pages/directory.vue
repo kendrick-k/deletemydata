@@ -113,10 +113,10 @@
               </div>
 
               <!-- Actions -->
-              <div class="space-y-3">
+              <div class="space-y-5">
                 <a 
                   :href="`/generator?company=${encodeURIComponent(selectedCompany.name)}&domain=${encodeURIComponent(selectedCompany.domain)}&dpo=${encodeURIComponent(selectedCompany.dpo)}&privacy=${encodeURIComponent(selectedCompany.privacyEmail)}&legal=${encodeURIComponent(selectedCompany.legalEmail)}`"
-                  class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-center font-semibold text-lg shadow-sm hover:shadow-md"
+                  class="w-full flex items-center justify-center bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors text-center font-semibold text-lg shadow-sm hover:shadow-md"
                 >
                   Créer une demande RGPD
                 </a>

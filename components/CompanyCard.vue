@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+  <div class="company-card">
     <!-- Header de la carte -->
     <div class="flex items-center mb-4">
-      <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4" :class="iconBgColor">
+      <div class="company-icon mr-4" :class="iconBgColor">
         <svg class="w-6 h-6" :class="iconColor" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="iconPath"/>
         </svg>
