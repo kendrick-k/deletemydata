@@ -28,14 +28,14 @@ Le Header et Footer utilisent des liens d'ancrage (`#`) pour naviguer vers des s
 ```vue
 <!-- Navigation desktop -->
 <nav class="hidden md:flex space-x-8">
-  <a href="#how-it-works">Comment ça marche</a>
-  <a href="#pricing">Tarifs</a>
+  <a href="/#how-it-works">Comment ça marche</a>
+  <a href="/#pricing">Tarifs</a>
 </nav>
 
 <!-- Navigation mobile -->
 <div class="md:hidden">
-  <a href="#how-it-works">Comment ça marche</a>
-  <a href="#pricing">Tarifs</a>
+  <a href="/#how-it-works">Comment ça marche</a>
+  <a href="/#pricing">Tarifs</a>
 </div>
 ```
 
@@ -44,10 +44,10 @@ Le Header et Footer utilisent des liens d'ancrage (`#`) pour naviguer vers des s
 <!-- Section Produit -->
 <ul class="space-y-2">
   <li>
-    <a href="#how-it-works">Comment ça marche</a>
+    <a href="/#how-it-works">Comment ça marche</a>
   </li>
   <li>
-    <a href="#pricing">Tarifs</a>
+    <a href="/#pricing">Tarifs</a>
   </li>
 </ul>
 ```
@@ -130,10 +130,10 @@ Le Header et Footer utilisent des liens d'ancrage (`#`) pour naviguer vers des s
 </section>
 
 <!-- Dans Header.vue -->
-<a href="#nouvelle-section">Nouvelle Section</a>
+<a href="/#nouvelle-section">Nouvelle Section</a>
 
 <!-- Dans Footer.vue -->
-<a href="#nouvelle-section">Nouvelle Section</a>
+<a href="/#nouvelle-section">Nouvelle Section</a>
 ```
 
 ### Modifier une section existante

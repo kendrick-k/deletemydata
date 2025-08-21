@@ -25,10 +25,10 @@
           <a href="/directory" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Annuaire
           </a>
-          <a href="#how-it-works" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+          <a href="/#how-it-works" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Comment ça marche
           </a>
-          <a href="#pricing" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+          <a href="/#pricing" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Tarifs
           </a>
         </nav>
@@ -68,10 +68,10 @@
           <a href="/directory" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Annuaire
           </a>
-          <a href="#how-it-works" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+          <a href="/#how-it-works" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Comment ça marche
           </a>
-          <a href="#pricing" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+          <a href="/#pricing" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Tarifs
           </a>
           <div class="pt-4 border-t border-gray-200">
