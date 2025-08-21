@@ -25,7 +25,7 @@
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
               </svg>
-              Essayer le générateur rgpd
+              essayer le générateur rgpd
             </a>
           </div>
           
@@ -108,7 +108,7 @@
           <ul class="space-y-2">
             <li>
               <a 
-                :href="props.disabled ? '#' : '/login'" 
+                :href="props.disabled ? 'javascript:void(0)' : '/login'" 
                 :class="[
                   'transition-colors',
                   props.disabled 
@@ -122,7 +122,7 @@
             </li>
             <li>
               <a 
-                :href="props.disabled ? '#' : '/signup'" 
+                :href="props.disabled ? 'javascript:void(0)' : '/signup'" 
                 :class="[
                   'transition-colors',
                   props.disabled 
@@ -136,7 +136,7 @@
             </li>
             <li>
               <a 
-                :href="props.disabled ? '#' : '/dashboard'" 
+                :href="props.disabled ? 'javascript:void(0)' : '/dashboard'" 
                 :class="[
                   'transition-colors',
                   props.disabled 

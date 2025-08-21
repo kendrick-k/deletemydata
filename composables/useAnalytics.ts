@@ -1,24 +1,33 @@
 export const useAnalytics = () => {
-  const { $gtag, $trackEvent, $trackPageView, $trackConversion } = useNuxtApp()
-
   // Track custom events
   const trackEvent = (action: string, category: string, label?: string, value?: number) => {
-    if (process.env.NODE_ENV === 'production') {
-      $trackEvent(action, category, label, value)
+    if (process.client && window.gtag) {
+      window.gtag('event', action, {
+        event_category: category,
+        event_label: label,
+        value: value
+      })
     }
   }
 
   // Track page views
   const trackPageView = (title?: string, location?: string) => {
-    if (process.env.NODE_ENV === 'production') {
-      $trackPageView(title, location)
+    if (process.client && window.gtag) {
+      window.gtag('config', 'G-9FHSG87X4G', {
+        page_title: title,
+        page_location: location || window.location.href
+      })
     }
   }
 
   // Track conversions
   const trackConversion = (conversionId: string, conversionLabel: string) => {
-    if (process.env.NODE_ENV === 'production') {
-      $trackConversion(conversionId, conversionLabel)
+    if (process.client && window.gtag) {
+      window.gtag('event', 'conversion', {
+        send_to: `G-9FHSG87X4G/${conversionId}`,
+        value: 1.0,
+        currency: 'EUR'
+      })
     }
   }
 

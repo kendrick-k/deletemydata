@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test GA Simple</title>
+</head>
+<body>
+    <h1>Test Google Analytics Simple</h1>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-9FHSG87X4G');
+    </script>
+    
+    <button onclick="testEvent()">Tester Événement GA</button>
+    <button onclick="testPageView()">Tester Page View GA</button>
+    
+    <script>
+        function testEvent() {
+            if (window.gtag) {
+                window.gtag('event', 'test_event', {
+                    event_category: 'test',
+                    event_label: 'Test depuis HTML simple',
+                    value: 1
+                });
+                console.log('✅ Événement GA envoyé : test_event');
+            } else {
+                console.log('❌ gtag non disponible');
+            }
+        }
+        
+        function testPageView() {
+            if (window.gtag) {
+                window.gtag('config', 'G-9FHSG87X4G', {
+                    page_title: 'Test Page View',
+                    page_location: window.location.href
+                });
+                console.log('✅ Page view GA envoyée');
+            } else {
+                console.log('❌ gtag non disponible');
+            }
+        }
+        
+        // Vérifier que GA est chargé
+        window.addEventListener('load', () => {
+            if (window.gtag) {
+                console.log('✅ Google Analytics chargé avec succès');
+            } else {
+                console.log('❌ Google Analytics non chargé');
+            }
+        });
+    </script>
+</body>
+</html> 
