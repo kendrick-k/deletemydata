@@ -108,7 +108,7 @@
           <ul class="space-y-2">
             <li>
               <a 
-                :href="props.disabled ? 'javascript:void(0)' : '/login'" 
+                :href="props.disabled ? '' : '/login'" 
                 :class="[
                   'transition-colors',
                   props.disabled 
@@ -122,7 +122,7 @@
             </li>
             <li>
               <a 
-                :href="props.disabled ? 'javascript:void(0)' : '/signup'" 
+                :href="props.disabled ? '' : '/signup'" 
                 :class="[
                   'transition-colors',
                   props.disabled 
@@ -136,7 +136,7 @@
             </li>
             <li>
               <a 
-                :href="props.disabled ? 'javascript:void(0)' : '/dashboard'" 
+                :href="props.disabled ? '' : '/dashboard'" 
                 :class="[
                   'transition-colors',
                   props.disabled 
