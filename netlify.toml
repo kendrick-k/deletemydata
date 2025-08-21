@@ -1,9 +1,14 @@
 [build]
-  command = "npm run generate"
+  command = "npm run netlify:build"
   publish = "dist"
-
+  
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20.18.0"
+  NPM_VERSION = "10.2.4"
+
+[[headers]]
+  for = "/*"
+  values = {Referrer-Policy = "strict-origin-when-cross-origin", X-Content-Type-Options = "nosniff"}
 
 # Redirects for SPA
 [[redirects]]
@@ -11,24 +16,15 @@
   to = "/index.html"
   status = 200
 
-# Redirect HTTP to HTTPS
+# Domain redirects
 [[redirects]]
-  from = "http://deletemydata.online/*"
+  from = "https://deletemydata.netlify.app/*"
   to = "https://deletemydata.online/:splat"
   status = 301
+  force = true
 
-# Redirect non-deletemydata.online domains to deletemydata.online
 [[redirects]]
-  from = "/*"
+  from = "https://www.deletemydata.netlify.app/*"
   to = "https://deletemydata.online/:splat"
   status = 301
-  conditions = {Host = "!deletemydata.online"}
-
-# Headers for security
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin" 
+  force = true 

@@ -30,19 +30,25 @@ export default defineNuxtConfig({
   
   // Build configuration for Netlify
   nitro: {
-    preset: 'netlify-static'
+    preset: 'netlify-static',
+    prerender: {
+      routes: ['/']
+    }
   },
   
   // Ensure proper build output
-  ssr: true,
+  ssr: false,
   
   // Handle missing environment variables gracefully
   experimental: {
     inlineSSRStyles: false
   },
   
-  // Node.js 18 compatibility
+  // Vite configuration for production
   vite: {
+    build: {
+      target: 'esnext'
+    },
     optimizeDeps: {
       exclude: ['@nuxtjs/supabase']
     }
