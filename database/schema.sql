@@ -316,4 +316,134 @@ insert into public.privacy_contacts (domain, company_name, email, type, source, 
 ('linkedin.com', 'Microsoft Corporation', 'privacy@linkedin.com', 'privacy', 'manual', 85),
 ('instagram.com', 'Meta Platforms Inc.', 'dpo@instagram.com', 'dpo', 'manual', 90),
 ('youtube.com', 'Google LLC', 'privacy@youtube.com', 'privacy', 'manual', 90)
-on conflict (domain, email) do nothing; 
+on conflict (domain, email) do nothing;
+
+-- =====================================================
+-- LISTE D'ATTENTE RGPD
+-- =====================================================
+
+-- Table pour la liste d'attente des demandes RGPD
+create table public.waiting_list_rgpd (
+  id uuid primary key default gen_random_uuid(),
+  email text not null unique,
+  first_name text,
+  last_name text,
+  company_name text,
+  company_domain text,
+  request_type text check (request_type in ('deletion', 'access', 'rectification')) default 'deletion',
+  additional_details text,
+  status text check (status in ('pending', 'contacted', 'converted', 'unsubscribed')) default 'pending',
+  source text, -- 'website', 'generator', 'directory', etc.
+  ip_address inet,
+  user_agent text,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+-- Index pour la performance
+create index on public.waiting_list_rgpd (email);
+create index on public.waiting_list_rgpd (status);
+create index on public.waiting_list_rgpd (created_at);
+create index on public.waiting_list_rgpd (company_domain);
+
+-- Activer RLS
+alter table public.waiting_list_rgpd enable row level security;
+
+-- Politique RLS : lecture publique, écriture publique (pour l'inscription)
+create policy "public read access"
+on public.waiting_list_rgpd for select
+using (true);
+
+create policy "public insert access"
+on public.waiting_list_rgpd for insert
+with check (true);
+
+-- Trigger pour updated_at
+create trigger update_waiting_list_rgpd_updated_at before update on public.waiting_list_rgpd
+  for each row execute function public.update_updated_at_column();
+
+-- =====================================================
+-- CONTACTS & SUPPORT
+-- =====================================================
+
+-- Table pour les messages de contact
+create table public.contact_messages (
+  id uuid primary key default gen_random_uuid(),
+  first_name text not null,
+  last_name text not null,
+  email text not null,
+  subject text not null check (subject in ('support', 'billing', 'partnership', 'press', 'legal', 'other')),
+  message text not null,
+  accept_privacy boolean not null default false,
+  status text check (status in ('new', 'in_progress', 'resolved', 'spam')) default 'new',
+  priority text check (priority in ('low', 'medium', 'high', 'urgent')) default 'medium',
+  assigned_to uuid references public.profiles(id),
+  internal_notes text,
+  ip_address inet,
+  user_agent text,
+  source text default 'contact_form', -- 'contact_form', 'support', 'api', etc.
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+-- Index pour la performance
+create index on public.contact_messages (email);
+create index on public.contact_messages (status);
+create index on public.contact_messages (subject);
+create index on public.contact_messages (priority);
+create index on public.contact_messages (created_at);
+create index on public.contact_messages (assigned_to);
+
+-- Activer RLS
+alter table public.contact_messages enable row level security;
+
+-- Politique RLS : lecture par les admins, écriture publique
+create policy "public insert access"
+on public.contact_messages for insert
+with check (true);
+
+create policy "admins can read all"
+on public.contact_messages for select
+using (
+  exists (
+    select 1 from public.workspace_members wm
+    join public.workspaces w on w.id = wm.workspace_id
+    where wm.user_id = auth.uid() 
+    and wm.role in ('owner', 'admin')
+    and w.plan in ('pro', 'business', 'enterprise')
+  )
+);
+
+create policy "admins can update"
+on public.contact_messages for update
+using (
+  exists (
+    select 1 from public.workspace_members wm
+    join public.workspaces w on w.id = wm.workspace_id
+    where wm.user_id = auth.uid() 
+    and wm.role in ('owner', 'admin')
+    and w.plan in ('pro', 'business', 'enterprise')
+  )
+);
+
+-- Trigger pour updated_at
+create trigger update_contact_messages_updated_at before update on public.contact_messages
+  for each row execute function public.update_updated_at_column();
+
+-- Fonction pour compter les messages par statut
+create or replace function public.contact_messages_stats()
+returns table(status text, count bigint) language sql stable as $$
+  select status, count(*) as count
+  from public.contact_messages
+  group by status
+  order by count desc;
+$$;
+
+-- Fonction pour les messages non traités
+create or replace function public.pending_contact_messages()
+returns table(id uuid, first_name text, last_name text, email text, subject text, created_at timestamptz) language sql stable as $$
+  select id, first_name, last_name, email, subject, created_at
+  from public.contact_messages
+  where status = 'new'
+  order by created_at asc;
+$$; 

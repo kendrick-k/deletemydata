@@ -7,8 +7,37 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/seo'
   ],
+  
+  // CSS global
+  css: [
+    '~/assets/css/main.css'
+  ],
+  
+  // Transitions de page
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in'
+    },
+    head: {
+      script: [
+        // Google Analytics - only in production
+        ...(process.env.NODE_ENV === 'production' ? [
+          {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G',
+            async: true
+          }
+        ] : []),
+        // Preline JavaScript (chargé via plugin)
+        // {
+        //   src: './node_modules/preline/dist/preline.js'
+        // }
+      ]
+    }
+  },
   
   supabase: {
     redirect: false,
@@ -30,37 +59,27 @@ export default defineNuxtConfig({
   
   // Build configuration for Netlify
   nitro: {
-    preset: 'netlify-static',
-    prerender: {
-      routes: ['/']
-    }
+    preset: 'netlify-static'
   },
   
   // Ensure proper build output
-  ssr: false,
+  ssr: true,
   
   // Handle missing environment variables gracefully
   experimental: {
-    inlineSSRStyles: false
+    // inlineSSRStyles: false // Propriété invalide supprimée
   },
   
-  // Vite configuration for production
+  // Node.js 18 compatibility
   vite: {
-    build: {
-      target: 'esnext'
-    },
     optimizeDeps: {
       exclude: ['@nuxtjs/supabase']
     }
-  }
-  
-  // Preline configuration (temporarily disabled)
-  // css: [
-  //   'preline/dist/preline.css'
-  // ],
-  
-  // Add Preline plugin (temporarily disabled)
-  // plugins: [
-  //   '~/plugins/preline.client.ts'
-  // ]
+  },
+
+  // Plugins
+  plugins: [
+    '~/plugins/gtag.client.ts',
+    '~/plugins/preline.client.ts'
+  ]
 })
