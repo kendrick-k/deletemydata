@@ -89,5 +89,8 @@
 </template>
 
 <script setup>
+// Import components
+import CubeLogo from '~/components/CubeLogo.vue'
+
 const mobileMenuOpen = ref(false)
 </script> 
