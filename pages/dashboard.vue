@@ -90,7 +90,7 @@
           <h3 class="text-lg font-semibold text-gray-900 mb-4">Actions rapides</h3>
           <div class="space-y-3">
             <a
-              href="/generator"
+              href="http://localhost:3005/generator"
               class="flex items-center p-3 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors"
             >
               <svg class="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -150,7 +150,7 @@
           <p class="text-lg font-medium">Aucune activité pour le moment</p>
           <p class="text-sm">Commencez par créer votre première demande RGPD</p>
           <a
-            href="/generator"
+            href="http://localhost:3005/generator"
             class="inline-flex items-center mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
             Créer une demande

@@ -34,7 +34,7 @@
           <h3 class="text-lg font-semibold mb-4">Produit</h3>
           <ul class="space-y-2">
             <li>
-              <a href="/generator" class="text-gray-300 hover:text-white transition-colors">
+              <a href="http://localhost:3005/generator" class="text-gray-300 hover:text-white transition-colors">
                 Générateur RGPD
               </a>
             </li>

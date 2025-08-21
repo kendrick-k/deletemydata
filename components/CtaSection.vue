@@ -8,7 +8,7 @@
         Rejoignez des milliers d'utilisateurs qui ont déjà supprimé leurs données de centaines d'entreprises.
       </p>
       <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        <a href="/generator" class="bg-white text-blue-600 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-3">
+        <a href="http://localhost:3005/generator" class="bg-white text-blue-600 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-3">
           Commencer gratuitement
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>

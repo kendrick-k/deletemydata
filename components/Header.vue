@@ -19,7 +19,7 @@
           <a href="/" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Accueil
           </a>
-          <a href="/generator" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+          <a href="http://localhost:3005/generator" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Générateur
           </a>
           <a href="/directory" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
@@ -65,7 +65,7 @@
           <a href="/" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Accueil
           </a>
-          <a href="/generator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+          <a href="http://localhost:3005/generator" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Générateur
           </a>
           <a href="/directory" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">

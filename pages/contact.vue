@@ -246,7 +246,7 @@
           Commencez dès aujourd'hui avec notre plateforme gratuite
         </p>
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="/generator" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+          <a href="http://localhost:3005/generator" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
             Commencer gratuitement
           </a>
           <a href="/#how-it-works" class="text-white border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
