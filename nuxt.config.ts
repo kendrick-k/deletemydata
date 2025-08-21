@@ -23,7 +23,21 @@ export default defineNuxtConfig({
       mode: 'out-in'
     },
     head: {
-      // Google Analytics est géré par le plugin gtag.client.ts
+      script: [
+        // Google Analytics
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-9FHSG87X4G',
+          async: true
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9FHSG87X4G');
+          `
+        }
+      ]
     }
   },
   
@@ -67,7 +81,6 @@ export default defineNuxtConfig({
 
   // Plugins
   plugins: [
-    '~/plugins/gtag.client.ts',
     '~/plugins/preline.client.ts'
   ]
 })
