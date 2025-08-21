@@ -75,10 +75,11 @@
                 Se souvenir de moi
               </label>
             </div>
+            <!-- Lien mot de passe oublié temporairement désactivé -->
             <div class="text-sm">
-              <a href="/forgot-password" class="text-blue-600 hover:text-blue-500 underline">
-                Mot de passe oublié ?
-              </a>
+              <span class="text-gray-500 cursor-not-allowed">
+                Mot de passe oublié ? (Contactez le support)
+              </span>
             </div>
           </div>
 

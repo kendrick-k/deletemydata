@@ -225,7 +225,7 @@
             <p class="text-gray-600 text-sm mb-4">
               Tout ce que les entreprises doivent savoir pour être conformes au RGPD.
             </p>
-            <a href="/blog/obligations-rgpd-entreprises" class="text-blue-600 hover:text-blue-500 font-medium">
+            <a href="/blog/protection-donnees-entreprises" class="text-blue-600 hover:text-blue-500 font-medium">
               Lire l'article →
             </a>
           </div>
@@ -247,7 +247,7 @@
             <p class="text-gray-600 text-sm mb-4">
               Conseils pratiques pour sécuriser vos informations personnelles sur internet.
             </p>
-            <a href="/blog/proteger-donnees-personnelles-en-ligne" class="text-blue-600 hover:text-blue-500 font-medium">
+            <a href="/blog/cookies-tracking" class="text-blue-600 hover:text-blue-500 font-medium">
               Lire l'article →
             </a>
           </div>
