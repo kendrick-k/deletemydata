@@ -9,6 +9,24 @@
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
           Créez des demandes de suppression de données conformes au RGPD et au Delete Act en quelques clics.
         </p>
+        
+        <!-- Demo Data Banner -->
+        <div class="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto">
+          <div class="flex items-center justify-center gap-3">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span class="text-sm text-blue-800">
+              <strong>Mode démonstration activé</strong> - Les champs sont pré-remplis avec des données d'exemple
+            </span>
+            <button 
+              @click="clearDemoData" 
+              class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors"
+            >
+              Effacer
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Generator Form -->
@@ -25,7 +43,8 @@
                     v-model="form.firstName" 
                     type="text" 
                     required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="form-input"
+                    placeholder="Ex: Jean"
                   >
                 </div>
                 <div>
@@ -34,7 +53,8 @@
                     v-model="form.lastName" 
                     type="text" 
                     required
-                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="form-input"
+                    placeholder="Ex: Dupont"
                   >
                 </div>
               </div>
@@ -44,7 +64,8 @@
                   v-model="form.email" 
                   type="email" 
                   required
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="form-input"
+                  placeholder="Ex: jean.dupont@email.com"
                 >
               </div>
             </div>
@@ -59,7 +80,7 @@
                   type="text" 
                   required
                   placeholder="Ex: Google, Facebook, Amazon..." 
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="form-input"
                 >
               </div>
               <div class="mt-4">
@@ -69,7 +90,7 @@
                   type="text" 
                   required
                   placeholder="Ex: google.com" 
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="form-input"
                 >
               </div>
               <div class="mt-4">
@@ -78,7 +99,7 @@
                   v-model="form.dpoEmail" 
                   type="email" 
                   placeholder="Email du délégué à la protection des données"
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="form-input"
                 >
               </div>
               <div class="mt-4">
@@ -87,7 +108,7 @@
                   v-model="form.privacyEmail" 
                   type="email" 
                   placeholder="Email privacy@ de l'entreprise"
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="form-input"
                 >
               </div>
               <div class="mt-4">
@@ -96,7 +117,7 @@
                   v-model="form.legalEmail" 
                   type="email" 
                   placeholder="Email légal de l'entreprise"
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="form-input"
                 >
               </div>
             </div>
@@ -129,7 +150,7 @@
                   v-model="form.additionalDetails"
                   rows="4" 
                   placeholder="Décrivez les données spécifiques que vous souhaitez supprimer ou accéder..." 
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  class="form-input"
                 ></textarea>
               </div>
             </div>
@@ -139,7 +160,7 @@
               <button 
                 type="submit" 
                 :disabled="isGenerating"
-                class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-semibold disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                class="btn-primary w-full text-lg py-4 px-6 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span v-if="isGenerating" class="flex items-center justify-center">
                   <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
@@ -212,6 +233,20 @@ useHead({
   ]
 })
 
+// Données de démonstration par défaut
+const demoData = {
+  firstName: 'Jean',
+  lastName: 'Dupont',
+  email: 'jean.dupont@email.com',
+  companyName: 'Google',
+  companyDomain: 'google.com',
+  dpoEmail: 'dpo@google.com',
+  privacyEmail: 'privacy@google.com',
+  legalEmail: 'legal@google.com',
+  requestType: 'deletion',
+  additionalDetails: 'Je souhaite supprimer toutes mes données personnelles, y compris mon historique de recherche, mes préférences publicitaires et mes données de localisation.'
+}
+
 // État du formulaire
 const form = ref({
   firstName: '',
@@ -229,6 +264,7 @@ const form = ref({
 // État de l'interface
 const isGenerating = ref(false)
 const generatedRequest = ref('')
+const isDemoMode = ref(true)
 
 // Récupération des paramètres d'URL au chargement de la page
 onMounted(() => {
@@ -244,16 +280,42 @@ onMounted(() => {
       const privacy = urlParams.get('privacy')
       const legal = urlParams.get('legal')
       
-      if (company) form.value.companyName = company
-      if (domain) form.value.companyDomain = domain
-      if (dpo) form.value.dpoEmail = dpo
-      if (privacy) form.value.privacyEmail = privacy
-      if (legal) form.value.legalEmail = legal
+      if (company || domain || dpo || privacy || legal) {
+        // Mode avec paramètres d'URL
+        if (company) form.value.companyName = company
+        if (domain) form.value.companyDomain = domain
+        if (dpo) form.value.dpoEmail = dpo
+        if (privacy) form.value.privacyEmail = privacy
+        if (legal) form.value.legalEmail = legal
+        isDemoMode.value = false
+      } else {
+        // Mode démonstration par défaut
+        loadDemoData()
+      }
     } catch (error) {
       console.log('Erreur lors de la récupération des paramètres:', error)
+      // En cas d'erreur, charger les données de démonstration
+      loadDemoData()
     }
   }
 })
+
+// Charger les données de démonstration
+const loadDemoData = () => {
+  Object.assign(form.value, demoData)
+  isDemoMode.value = true
+}
+
+// Effacer les données de démonstration
+const clearDemoData = () => {
+  Object.keys(form.value).forEach(key => {
+    if (key !== 'requestType') {
+      (form.value as any)[key] = ''
+    }
+  })
+  form.value.requestType = 'deletion'
+  isDemoMode.value = false
+}
 
 // Génération de la demande RGPD
 const generateRequest = async () => {
@@ -305,6 +367,8 @@ Cette demande s'applique à toutes les données me concernant, y compris mais sa
 - Contenu généré par l'utilisateur
 - Données partagées avec des tiers
 
+${form.value.additionalDetails ? `Détails spécifiques : ${form.value.additionalDetails}` : ''}
+
 Conformément à l'article 17 du RGPD, vous disposez d'un délai d'un mois pour répondre à cette demande.
 
 Je vous remercie de me confirmer la suppression de mes données par email à l'adresse suivante : ${form.value.email}
@@ -338,4 +402,5 @@ const copyToClipboard = async () => {
   }
 }
 </script>
+ 
  
