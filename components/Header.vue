@@ -35,8 +35,11 @@
 
         <!-- CTA Button -->
         <div class="hidden md:flex items-center space-x-4">
+          <a href="/login" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+            Se connecter
+          </a>
           <a href="/signup" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
-            Commencer
+            S'inscrire
           </a>
         </div>
 

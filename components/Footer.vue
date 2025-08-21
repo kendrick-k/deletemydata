@@ -82,6 +82,28 @@
             </li>
           </ul>
         </div>
+
+        <!-- Account Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Compte</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="/login" class="text-gray-300 hover:text-white transition-colors">
+                Se connecter
+              </a>
+            </li>
+            <li>
+              <a href="/signup" class="text-gray-300 hover:text-white transition-colors">
+                S'inscrire
+              </a>
+            </li>
+            <li>
+              <a href="/dashboard" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Bottom Section -->
