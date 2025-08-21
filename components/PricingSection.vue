@@ -52,10 +52,10 @@
           <a href="#get-started" class="btn-outline w-full">Commencer gratuitement</a>
         </div>
         
-        <!-- Pro Plan -->
-        <div class="bg-white border-2 border-blue-600 rounded-xl p-8 text-center relative">
+        <!-- Pro Plan - Désactivé -->
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-8 text-center relative opacity-30 pointer-events-none">
           <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <span class="bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold">Populaire</span>
+            <span class="bg-gray-400 text-white px-4 py-1 rounded-full text-sm font-semibold">Bientôt disponible</span>
           </div>
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Pro</h3>
           <p class="text-gray-600 mb-6">Pour les particuliers</p>
@@ -72,34 +72,36 @@
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               Envoi automatique
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               Relances automatiques
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               Preuves horodatées
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               Support prioritaire
             </li>
           </ul>
-          <a href="#get-started" class="btn-primary w-full">Commencer Pro</a>
+          <button disabled class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg font-semibold cursor-not-allowed w-full">
+            Bientôt disponible
+          </button>
         </div>
         
-        <!-- Business Plan -->
-        <div class="bg-white border-2 border-gray-200 rounded-xl p-8 text-center">
+        <!-- Business Plan - Désactivé -->
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-8 text-center opacity-30 pointer-events-none">
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Business</h3>
           <p class="text-gray-600 mb-6">Pour les PME</p>
           <div class="text-4xl font-bold text-gray-900 mb-8">
@@ -115,30 +117,48 @@
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               Dashboard multi-marques
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               Modèles personnalisés
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               Export et rapports
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
               3 sièges inclus
             </li>
           </ul>
-          <a href="#get-started" class="btn-outline w-full">Commencer Business</a>
+          <button disabled class="bg-gray-300 text-gray-500 px-6 py-3 rounded-lg font-semibold cursor-not-allowed w-full">
+            Bientôt disponible
+          </button>
+        </div>
+      </div>
+      
+      <!-- Message informatif -->
+      <div class="text-center mt-12">
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto">
+          <div class="flex items-center justify-center mb-3">
+            <svg class="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h3 class="text-lg font-semibold text-blue-900">Plans Pro et Business en développement</h3>
+          </div>
+          <p class="text-blue-800">
+            Nous travaillons actuellement sur les fonctionnalités avancées. Le plan gratuit vous permet déjà de commencer 
+            à reprendre le contrôle de vos données. Inscrivez-vous pour être notifié de la disponibilité des plans payants.
+          </p>
         </div>
       </div>
     </div>
