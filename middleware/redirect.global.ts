@@ -9,15 +9,25 @@ export default defineNuxtRouteMiddleware((to, from) => {
     nextTick(() => {
       try {
         const hostname = window.location.hostname
-        const protocol = window.location.protocol
+        const currentUrl = window.location.href
+        const targetDomain = 'deletemydata.online'
+        
+        // Prevent infinite loops - check if we're already on the target domain
+        if (hostname === targetDomain || hostname.endsWith(`.${targetDomain}`)) {
+          return
+        }
         
         // Check if we should redirect
         if (shouldRedirectToMainDomain(hostname)) {
-          // Redirect to deletemydata.online
-          const targetUrl = `${getMainDomainUrl(protocol)}${to.fullPath}`
+          // Build the target URL with proper protocol
+          const targetUrl = `https://${targetDomain}${to.fullPath}`
           
-          // Use 301 permanent redirect for SEO
-          window.location.replace(targetUrl)
+          // Prevent redirect loops by checking if we're not already redirecting
+          if (currentUrl !== targetUrl) {
+            console.log(`Redirecting from ${currentUrl} to ${targetUrl}`)
+            // Use 301 permanent redirect for SEO
+            window.location.replace(targetUrl)
+          }
         }
       } catch (error) {
         console.warn('Redirect middleware error:', error)

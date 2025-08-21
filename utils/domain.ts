@@ -16,15 +16,17 @@ export const shouldRedirectToMainDomain = (hostname: string): boolean => {
     return true
   }
   
-  // Redirect from other domains (optional)
+  // Don't redirect from other domains to avoid loops
   return false
 }
 
 /**
- * Get the main domain URL
+ * Get the main domain URL with proper protocol
  */
 export const getMainDomainUrl = (protocol: string = 'https'): string => {
-  return `${protocol}://deletemydata.online`
+  // Ensure we always use https for production
+  const finalProtocol = protocol === 'https:' ? 'https' : 'https'
+  return `${finalProtocol}://deletemydata.online`
 }
 
 /**
