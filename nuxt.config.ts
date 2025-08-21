@@ -10,6 +10,11 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode'
   ],
   
+  // CSS global
+  css: [
+    '~/assets/css/main.css'
+  ],
+  
   supabase: {
     redirect: false,
     // Use environment variables with fallbacks
