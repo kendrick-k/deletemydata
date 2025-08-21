@@ -49,7 +49,9 @@
               Annuaire Privacy Contacts
             </li>
           </ul>
-                      <a href="http://localhost:3005/generator" class="btn-outline w-full">Commencer gratuitement</a>
+          <a href="http://localhost:3005/generator" class="btn-primary w-full text-center text-lg py-4">
+            Commencer gratuitement
+          </a>
         </div>
         
         <!-- Pro Plan - Désactivé -->

@@ -1,0 +1,8 @@
+<svg width="400" height="200" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#F3E8FF"/>
+  <rect x="100" y="40" width="200" height="120" rx="8" fill="#A78BFA"/>
+  <text x="200" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">🏢</text>
+  <text x="200" y="105" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Entreprise</text>
+  <text x="200" y="125" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">RGPD</text>
+  <text x="200" y="160" text-anchor="middle" fill="#5B21B6" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Conformité et obligations</text>
+</svg> 

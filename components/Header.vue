@@ -23,6 +23,9 @@
           <a href="/directory" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Annuaire
           </a>
+          <a href="/blog" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+            Blog
+          </a>
           <a href="/#how-it-works" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
             Comment ça marche
           </a>
@@ -68,6 +71,9 @@
           </a>
           <a href="/directory" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Annuaire
+          </a>
+          <a href="/blog" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+            Blog
           </a>
           <a href="/#how-it-works" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
             Comment ça marche

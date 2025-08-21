@@ -1,314 +1,239 @@
 <template>
   <div class="min-h-screen bg-gray-50">
-    <!-- Hero Section -->
-    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-          Blog <span class="gradient-text">DeleteMyData</span>
-        </h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          Actualités, conseils et guides sur la protection des données personnelles, 
-          le RGPD et vos droits numériques
-        </p>
-      </div>
-    </section>
-
-    <!-- Filtres et recherche -->
-    <section class="py-12 bg-white border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
-          <!-- Recherche -->
-          <div class="relative flex-1 max-w-md">
-            <input
-              v-model="searchQuery"
-              type="text"
-              placeholder="Rechercher un article..."
-              class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-          </div>
-
-          <!-- Filtres par catégorie -->
-          <div class="flex flex-wrap gap-3">
-            <button
-              v-for="category in categories"
-              :key="category.id"
-              @click="selectedCategory = selectedCategory === category.id ? null : category.id"
-              :class="[
-                'px-4 py-2 rounded-full text-sm font-medium transition-colors',
-                selectedCategory === category.id
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              ]"
-            >
-              {{ category.name }}
-            </button>
-          </div>
+    <!-- Header du blog -->
+    <div class="bg-white shadow-sm border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center">
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">
+            Blog RGPD & Protection des données
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Découvrez nos articles sur la conformité RGPD, les droits des utilisateurs, 
+            et les meilleures pratiques pour protéger vos données personnelles.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Articles -->
-    <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Articles en vedette -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold text-gray-900 mb-8">Articles en vedette</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <article v-for="article in featuredArticles" :key="article.id" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-              <img :src="article.image" :alt="article.title" class="w-full h-48 object-cover">
-              <div class="p-6">
-                <div class="flex items-center gap-2 mb-3">
-                  <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
-                    {{ article.category }}
-                  </span>
-                  <span class="text-sm text-gray-500">{{ article.readTime }} min de lecture</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  <a :href="`/blog/${article.slug}`" class="hover:text-blue-600 transition-colors">
-                    {{ article.title }}
-                  </a>
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed">{{ article.excerpt }}</p>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-3">
-                    <img :src="article.author.avatar" :alt="article.author.name" class="w-8 h-8 rounded-full">
-                    <div>
-                      <p class="text-sm font-medium text-gray-900">{{ article.author.name }}</p>
-                      <p class="text-xs text-gray-500">{{ article.publishedAt }}</p>
-                    </div>
-                  </div>
-                  <a :href="`/blog/${article.slug}`" class="text-blue-600 hover:text-blue-700 font-medium text-sm">
-                    Lire l'article →
-                  </a>
-                </div>
+    <!-- Liste des articles -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article 
+          v-for="article in articles" 
+          :key="article.slug"
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        >
+          <!-- Image de l'article -->
+          <div class="aspect-w-16 aspect-h-9">
+            <img 
+              :src="article.image" 
+              :alt="article.title"
+              class="w-full h-48 object-cover"
+            />
+          </div>
+          
+          <!-- Contenu de l'article -->
+          <div class="p-6">
+            <!-- Catégorie -->
+            <div class="flex items-center mb-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium"
+                    :class="getCategoryClass(article.category)">
+                {{ article.category }}
+              </span>
+              <span class="text-sm text-gray-500 ml-3">
+                {{ formatDate(article.date) }}
+              </span>
+            </div>
+            
+            <!-- Titre -->
+            <h2 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
+              {{ article.title }}
+            </h2>
+            
+            <!-- Extrait -->
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              {{ article.excerpt }}
+            </p>
+            
+            <!-- Auteur -->
+            <div class="flex items-center mb-4">
+              <img 
+                :src="article.author.avatar" 
+                :alt="article.author.name"
+                class="w-8 h-8 rounded-full mr-3"
+              />
+              <div>
+                <p class="text-sm font-medium text-gray-900">{{ article.author.name }}</p>
+                <p class="text-xs text-gray-500">{{ article.author.role }}</p>
               </div>
-            </article>
+            </div>
+            
+            <!-- Bouton lire plus -->
+            <NuxtLink 
+              :to="`/blog/${article.slug}`"
+              class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+            >
+              Lire l'article complet
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </NuxtLink>
           </div>
-        </div>
-
-        <!-- Tous les articles -->
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 mb-8">Tous les articles</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <article v-for="article in filteredArticles" :key="article.id" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-              <img :src="article.image" :alt="article.title" class="w-full h-48 object-cover">
-              <div class="p-6">
-                <div class="flex items-center gap-2 mb-3">
-                  <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
-                    {{ article.category }}
-                  </span>
-                  <span class="text-sm text-gray-500">{{ article.readTime }} min</span>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-3 leading-tight">
-                  <a :href="`/blog/${article.slug}`" class="hover:text-blue-600 transition-colors">
-                    {{ article.title }}
-                  </a>
-                </h3>
-                <p class="text-gray-600 mb-4 leading-relaxed text-sm">{{ article.excerpt }}</p>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <img :src="article.author.avatar" :alt="article.author.name" class="w-6 h-6 rounded-full">
-                    <span class="text-sm text-gray-700">{{ article.author.name }}</span>
-                  </div>
-                  <span class="text-xs text-gray-500">{{ article.publishedAt }}</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="mt-16 flex justify-center">
-          <nav class="flex items-center gap-2">
-            <button class="px-3 py-2 text-gray-500 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed">
-              Précédent
-            </button>
-            <button class="px-3 py-2 bg-blue-600 text-white rounded-lg">1</button>
-            <button class="px-3 py-2 text-gray-700 hover:text-gray-900">2</button>
-            <button class="px-3 py-2 text-gray-700 hover:text-gray-900">3</button>
-            <button class="px-3 py-2 text-gray-500 hover:text-gray-700">
-              Suivant
-            </button>
-          </nav>
-        </div>
+        </article>
       </div>
-    </section>
+    </div>
 
     <!-- Newsletter -->
-    <section class="py-20 bg-blue-600">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-white mb-6">Restez informé</h2>
-        <p class="text-xl text-blue-100 mb-8 leading-relaxed">
-          Recevez nos derniers articles et conseils sur la protection de vos données personnelles
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder="Votre adresse email"
-            class="flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
-          >
-          <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-            S'abonner
-          </button>
+    <div class="bg-blue-600">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">
+            Restez informé des dernières actualités RGPD
+          </h2>
+          <p class="text-xl text-blue-100 mb-8">
+            Recevez nos articles et conseils directement dans votre boîte mail
+          </p>
+          <WaitingListButton 
+            button-text="S'abonner au blog"
+            button-classes="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg"
+            :show-icon="false"
+          />
         </div>
-        <p class="text-blue-200 text-sm mt-4">
-          Désabonnement à tout moment • Pas de spam
-        </p>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// Meta tags pour SEO
+// Meta tags
 useHead({
-  title: 'Blog - DeleteMyData',
+  title: 'Blog RGPD - Protection des données et conformité | DeleteMyData',
   meta: [
-    {
-      name: 'description',
-      content: 'Découvrez nos articles sur la protection des données, le RGPD et vos droits numériques. Conseils et guides pratiques pour reprendre le contrôle de vos données.'
-    }
+    { name: 'description', content: 'Découvrez nos articles sur la conformité RGPD, les droits des utilisateurs et les meilleures pratiques pour protéger vos données personnelles.' },
+    { property: 'og:title', content: 'Blog RGPD - Protection des données et conformité' },
+    { property: 'og:description', content: 'Articles et conseils sur la conformité RGPD et la protection des données personnelles.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://deletemydata.online/blog' }
   ]
 })
 
-// État de la recherche et filtres
-const searchQuery = ref('')
-const selectedCategory = ref(null)
-
-// Catégories d'articles
-const categories = [
-  { id: 'rgpd', name: 'RGPD' },
-  { id: 'delete-act', name: 'Delete Act' },
-  { id: 'conseils', name: 'Conseils' },
-  { id: 'actualites', name: 'Actualités' },
-  { id: 'guides', name: 'Guides' }
-]
-
-// Articles en vedette
-const featuredArticles = ref([
+// Articles du blog
+const articles = ref([
   {
-    id: 1,
-    title: 'Comment exercer votre droit à l\'oubli en 2024',
-    excerpt: 'Guide complet pour supprimer vos données personnelles des entreprises qui les détiennent, conformément au RGPD et au Delete Act américain.',
-    category: 'RGPD',
-    readTime: 8,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    slug: 'droit-oubli-2024',
-    publishedAt: '15 janvier 2024',
+    slug: 'guide-rgpd-2024',
+    title: 'Guide complet RGPD 2024 : Vos droits et obligations',
+    excerpt: 'Découvrez tout ce que vous devez savoir sur le RGPD en 2024. Nous vous expliquons vos droits, les obligations des entreprises et comment exercer vos droits à la suppression des données.',
+    image: '/images/blog/rgpd-guide-2024.jpg',
+    category: 'Guide',
+    date: '2024-01-15',
     author: {
-      name: 'Sophie Dubois',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face'
+      name: 'Sophie Martin',
+      role: 'Experte RGPD',
+      avatar: '/images/team/sophie-martin.jpg'
     }
   },
   {
-    id: 2,
-    title: 'Les entreprises qui collectent le plus de données personnelles',
-    excerpt: 'Découvrez quelles entreprises collectent et utilisent vos données personnelles, et comment les faire supprimer efficacement.',
-    category: 'Actualités',
-    readTime: 6,
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop',
-    slug: 'entreprises-collecte-donnees',
-    publishedAt: '12 janvier 2024',
+    slug: 'supprimer-donnees-google',
+    title: 'Comment supprimer vos données de Google en 2024',
+    excerpt: 'Google collecte énormément de données sur vous. Apprenez comment identifier, demander et obtenir la suppression de vos données personnelles stockées par Google.',
+    image: '/images/blog/google-data-deletion.jpg',
+    category: 'Tutoriel',
+    date: '2024-01-10',
     author: {
-      name: 'Alexandre Martin',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
+      name: 'Thomas Dubois',
+      role: 'Spécialiste Tech',
+      avatar: '/images/team/thomas-dubois.jpg'
+    }
+  },
+  {
+    slug: 'droit-oubli-facebook',
+    title: 'Le droit à l\'oubli sur Facebook : Guide pratique',
+    excerpt: 'Facebook garde une trace de tout ce que vous faites. Découvrez comment exercer votre droit à l\'oubli et faire supprimer vos données personnelles du réseau social.',
+    image: '/images/blog/facebook-right-to-be-forgotten.jpg',
+    category: 'Tutoriel',
+    date: '2024-01-05',
+    author: {
+      name: 'Marie Leroy',
+      role: 'Avocate en droit numérique',
+      avatar: '/images/team/marie-leroy.jpg'
+    }
+  },
+  {
+    slug: 'protection-donnees-entreprises',
+    title: 'RGPD pour les entreprises : Comment se mettre en conformité',
+    excerpt: 'Vous dirigez une entreprise ? Découvrez les étapes essentielles pour vous mettre en conformité RGPD et éviter les sanctions qui peuvent aller jusqu\'à 4% du CA.',
+    image: '/images/blog/rgpd-entreprises.jpg',
+    category: 'Conformité',
+    date: '2024-01-01',
+    author: {
+      name: 'Pierre Moreau',
+      role: 'Consultant RGPD',
+      avatar: '/images/team/pierre-moreau.jpg'
+    }
+  },
+  {
+    slug: 'cookies-tracking',
+    title: 'Cookies et tracking : Comment reprendre le contrôle',
+    excerpt: 'Les cookies et le tracking en ligne vous inquiètent ? Apprenez à comprendre, gérer et limiter le suivi de votre activité sur internet.',
+    image: '/images/blog/cookies-tracking.jpg',
+    category: 'Sécurité',
+    date: '2023-12-28',
+    author: {
+      name: 'Sophie Martin',
+      role: 'Experte RGPD',
+      avatar: '/images/team/sophie-martin.jpg'
+    }
+  },
+  {
+    slug: 'donnees-sante-privacy',
+    title: 'Protection des données de santé : Les règles spécifiques',
+    excerpt: 'Les données de santé sont particulièrement sensibles et protégées. Découvrez les règles spécifiques et comment les entreprises doivent les traiter.',
+    image: '/images/blog/health-data-privacy.jpg',
+    category: 'Santé',
+    date: '2023-12-20',
+    author: {
+      name: 'Dr. Claire Bernard',
+      role: 'Médecin et juriste',
+      avatar: '/images/team/claire-bernard.jpg'
     }
   }
 ])
 
-// Tous les articles
-const allArticles = ref([
-  {
-    id: 3,
-    title: 'RGPD vs Delete Act : Les différences expliquées',
-    excerpt: 'Comparaison détaillée entre le règlement européen et la loi américaine sur la suppression des données.',
-    category: 'RGPD',
-    readTime: 5,
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop',
-    slug: 'rgpd-vs-delete-act',
-    publishedAt: '10 janvier 2024',
-    author: {
-      name: 'Thomas Leroy',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
-    }
-  },
-  {
-    id: 4,
-    title: '5 erreurs à éviter lors de vos demandes de suppression',
-    excerpt: 'Les pièges courants qui peuvent faire échouer vos demandes RGPD et comment les éviter.',
-    category: 'Conseils',
-    readTime: 4,
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
-    slug: 'erreurs-demandes-suppression',
-    publishedAt: '8 janvier 2024',
-    author: {
-      name: 'Sophie Dubois',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face'
-    }
-  },
-  {
-    id: 5,
-    title: 'Comment vérifier si vos données ont été supprimées',
-    excerpt: 'Méthodes et outils pour confirmer que vos demandes de suppression ont été traitées correctement.',
-    category: 'Guides',
-    readTime: 7,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
-    slug: 'verifier-suppression-donnees',
-    publishedAt: '5 janvier 2024',
-    author: {
-      name: 'Alexandre Martin',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
-    }
-  },
-  {
-    id: 6,
-    title: 'Les nouvelles obligations des entreprises en 2024',
-    excerpt: 'Mise à jour sur les nouvelles réglementations et obligations légales pour la protection des données.',
-    category: 'Actualités',
-    readTime: 6,
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop',
-    slug: 'nouvelles-obligations-2024',
-    publishedAt: '3 janvier 2024',
-    author: {
-      name: 'Thomas Leroy',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face'
-    }
+// Fonction pour obtenir la classe CSS de la catégorie
+const getCategoryClass = (category: string) => {
+  const classes = {
+    'Guide': 'bg-blue-100 text-blue-800',
+    'Tutoriel': 'bg-green-100 text-green-800',
+    'Conformité': 'bg-purple-100 text-purple-800',
+    'Sécurité': 'bg-red-100 text-red-800',
+    'Santé': 'bg-pink-100 text-pink-800'
   }
-])
+  return classes[category as keyof typeof classes] || 'bg-gray-100 text-gray-800'
+}
 
-// Articles filtrés
-const filteredArticles = computed(() => {
-  let articles = allArticles.value
-
-  // Filtre par catégorie
-  if (selectedCategory.value) {
-    articles = articles.filter(article => 
-      article.category.toLowerCase() === selectedCategory.value
-    )
-  }
-
-  // Filtre par recherche
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    articles = articles.filter(article =>
-      article.title.toLowerCase().includes(query) ||
-      article.excerpt.toLowerCase().includes(query) ||
-      article.category.toLowerCase().includes(query)
-    )
-  }
-
-  return articles
-})
+// Fonction pour formater la date
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString)
+  return date.toLocaleDateString('fr-FR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
 </script>
 
 <style scoped>
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style> 

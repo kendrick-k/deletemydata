@@ -1,0 +1,7 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#FDF2F8"/>
+  <circle cx="100" cy="80" r="40" fill="#F472B6"/>
+  <circle cx="100" cy="200" r="80" fill="#F472B6"/>
+  <text x="100" y="110" text-anchor="middle" fill="#831843" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Dr. Claire Bernard</text>
+  <text x="100" y="130" text-anchor="middle" fill="#EC4899" font-family="Arial, sans-serif" font-size="12">Médecin et juriste</text>
+</svg> 
