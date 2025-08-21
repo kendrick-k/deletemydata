@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
-    <Header />
-    
     <!-- Hero Section -->
     <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -707,8 +704,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <Footer />
   </div>
 </template>
 
@@ -737,7 +732,5 @@ useHead({
   ]
 })
 
-// Import components
-import Header from '~/components/Header.vue'
-import Footer from '~/components/Footer.vue'
+
 </script> 

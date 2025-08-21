@@ -7,14 +7,13 @@
           <div class="flex items-center space-x-2 mb-4">
             <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
               </svg>
             </div>
-            <span class="text-xl font-bold">DeleteMyData.online</span>
+            <span class="text-xl font-bold">DeleteMyData</span>
           </div>
-          <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
-            Reprenez le contrôle de vos données personnelles. Notre plateforme vous aide à exercer vos droits RGPD 
-            et Delete Act en toute simplicité.
+          <p class="text-gray-300 mb-4 max-w-md">
+            Reprenez le contrôle de vos données personnelles. Générez, envoyez et suivez vos demandes RGPD / Delete Act en un clic.
           </p>
           <div class="flex space-x-4">
             <a href="#" class="text-gray-400 hover:text-white transition-colors">
@@ -38,40 +37,25 @@
         <!-- Product Links -->
         <div>
           <h3 class="text-lg font-semibold mb-4">Produit</h3>
-          <ul class="space-y-3">
+          <ul class="space-y-2">
             <li>
-              <a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors">
-                Comment ça marche
-              </a>
-            </li>
-            <li>
-              <a href="#features" class="text-gray-400 hover:text-white transition-colors">
-                Fonctionnalités
-              </a>
-            </li>
-            <li>
-              <a href="/generator" class="text-gray-400 hover:text-white transition-colors">
+              <a href="/generator" class="text-gray-300 hover:text-white transition-colors">
                 Générateur RGPD
               </a>
             </li>
             <li>
-              <a href="/directory" class="text-gray-400 hover:text-white transition-colors">
+              <a href="/directory" class="text-gray-300 hover:text-white transition-colors">
                 Annuaire Contacts
               </a>
             </li>
             <li>
-              <a href="#pricing" class="text-gray-400 hover:text-white transition-colors">
+              <a href="#how-it-works" class="text-gray-300 hover:text-white transition-colors">
+                Comment ça marche
+              </a>
+            </li>
+            <li>
+              <a href="#pricing" class="text-gray-300 hover:text-white transition-colors">
                 Tarifs
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                API
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                Intégrations
               </a>
             </li>
           </ul>
@@ -80,30 +64,25 @@
         <!-- Company Links -->
         <div>
           <h3 class="text-lg font-semibold mb-4">Entreprise</h3>
-          <ul class="space-y-3">
+          <ul class="space-y-2">
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <a href="/about" class="text-gray-300 hover:text-white transition-colors">
                 À propos
               </a>
             </li>
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <a href="/blog" class="text-gray-300 hover:text-white transition-colors">
                 Blog
               </a>
             </li>
             <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                Carrières
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                Presse
-              </a>
-            </li>
-            <li>
-              <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <a href="/contact" class="text-gray-300 hover:text-white transition-colors">
                 Contact
+              </a>
+            </li>
+            <li>
+              <a href="/support" class="text-gray-300 hover:text-white transition-colors">
+                Support
               </a>
             </li>
           </ul>
@@ -111,19 +90,19 @@
       </div>
 
       <!-- Bottom Section -->
-      <div class="border-t border-gray-800 mt-12 pt-8">
+      <div class="border-t border-gray-800 mt-8 pt-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 DeleteMyData.online. Tous droits réservés.
+          <div class="text-gray-400 text-sm">
+            © 2024 DeleteMyData. Tous droits réservés.
           </div>
-          <div class="flex space-x-6 text-sm">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="/privacy" class="text-gray-400 hover:text-white text-sm transition-colors">
               Politique de confidentialité
             </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <a href="/terms" class="text-gray-400 hover:text-white text-sm transition-colors">
               Conditions d'utilisation
             </a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <a href="/cookies" class="text-gray-400 hover:text-white text-sm transition-colors">
               Cookies
             </a>
           </div>
