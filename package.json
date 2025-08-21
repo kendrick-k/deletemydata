@@ -9,8 +9,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "push": "git add . && git commit -m 'update' && git push",
-    "netlify:build": "nuxt generate"
+    "netlify:build": "nuxt generate",
+    "push": "git add . && git commit -m 'update' && git push"
   },
   "engines": {
     "node": ">=20.0.0",

@@ -10,7 +10,19 @@ export const shouldRedirectToMainDomain = (hostname: string): boolean => {
     return false
   }
   
-  return true
+  // Allow Netlify domains (prevent redirect loops)
+  if (hostname.endsWith('.netlify.app') || 
+      hostname.endsWith('.netlify.com')) {
+    return false
+  }
+  
+  // Only redirect from specific domains that we control
+  const redirectableDomains = [
+    'deletemydata.netlify.app',
+    'www.deletemydata.netlify.app'
+  ]
+  
+  return redirectableDomains.includes(hostname)
 }
 
 /**

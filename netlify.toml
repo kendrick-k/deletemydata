@@ -6,25 +6,31 @@
   NODE_VERSION = "20.18.0"
   NPM_VERSION = "10.2.4"
 
+# Security headers
 [[headers]]
   for = "/*"
-  values = {Referrer-Policy = "strict-origin-when-cross-origin", X-Content-Type-Options = "nosniff"}
+  values = {
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+  }
 
-# Redirects for SPA
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Domain redirects
+# Domain redirects - only redirect from Netlify subdomain to main domain
 [[redirects]]
-  from = "https://deletemydata.netlify.app/*"
+  from = "https://magnificent-twilight-6a72c6.netlify.app/*"
   to = "https://deletemydata.online/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.deletemydata.netlify.app/*"
+  from = "https://www.magnificent-twilight-6a72c6.netlify.app/*"
   to = "https://deletemydata.online/:splat"
   status = 301
   force = true 

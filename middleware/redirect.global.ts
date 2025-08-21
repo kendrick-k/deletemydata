@@ -1,6 +1,10 @@
 import { shouldRedirectToMainDomain, getMainDomainUrl } from '~/utils/domain'
 
 export default defineNuxtRouteMiddleware((to, from) => {
+  // TEMPORARILY DISABLED to prevent redirect loops
+  // TODO: Re-enable once domain redirects are properly configured
+  return
+  
   // Only run on client-side
   if (process.server) return
   
