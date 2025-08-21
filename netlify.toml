@@ -1,0 +1,34 @@
+[build]
+  command = "npm run generate"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirects for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Redirect HTTP to HTTPS
+[[redirects]]
+  from = "http://deletemydata.online/*"
+  to = "https://deletemydata.online/:splat"
+  status = 301
+
+# Redirect non-deletemydata.online domains to deletemydata.online
+[[redirects]]
+  from = "/*"
+  to = "https://deletemydata.online/:splat"
+  status = 301
+  conditions = {Host = "!deletemydata.online"}
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin" 
