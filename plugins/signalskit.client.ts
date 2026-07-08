@@ -26,7 +26,6 @@ export default defineNuxtPlugin(() => {
         'data-api-key':
           'signalskit_2811fe2ff40cac05681bc6817e8891c36f903701edaba1661c2863cd82b48111',
         'data-api-url': 'https://signalskit.com',
-        'data-consent-required': 'false',
         'data-datalayer': 'true',
       },
     ],

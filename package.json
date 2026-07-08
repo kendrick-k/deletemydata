@@ -10,7 +10,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "netlify:build": "nuxt generate",
-    "push": "git add . && git commit -m 'update' && git push"
+    "push": "git add . && git commit -m 'update' && git push",
+    "seo:search-console": "node scripts/search-console-report.mjs"
   },
   "engines": {
     "node": ">=20.0.0",
